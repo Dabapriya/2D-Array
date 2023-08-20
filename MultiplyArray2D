@@ -1,0 +1,71 @@
+# 2D-Array
+import java.util.Random;
+class TwoDimentionArrayMultiply
+{
+    public static void main(String[]args)
+    {
+                Random obj = new Random();
+        int ROWS = 3;
+        int COLS = 3; 
+        int matrixA[][] = new int[3][3];
+        int matrixB[][] = new int[3][3];
+        
+        int rowA= matrixA.length;
+        int colsA= matrixA[0].length;
+        int rowB = matrixB.length;
+        int colsB= matrixB[0].length; 
+        int resultantMatrix[][] = new int[rowA][colsB];
+        
+        
+        for(int i=0; i<ROWS; i++)
+        {
+            for(int j=0; j<COLS; j++)
+            {
+                matrixA[i][j] = 10 + obj.nextInt(90); 
+                matrixB[i][j] = 10 + obj.nextInt(90);
+            }
+        } 
+        for(int i=0; i<ROWS; i++)
+        {
+            for(int j=0; j<COLS; j++)
+            {
+                System.out.print(" " + matrixA[i][j]+ " ");
+            }  
+            System.out.println();
+        }  
+        
+        for(int i=0; i<ROWS; i++)
+        {
+            for(int j=0; j<COLS; j++)
+            {
+                System.out.print(" " + matrixB[i][j]+ " "); 
+            } 
+            System.out.println();
+        }  
+        
+        if( colsA != rowB)
+        {
+            System.out.println("MULTIPLICATION NOT COMPATIBLE");
+            return;
+        } 
+        else 
+        {   
+            int sum =0;
+            for(int i= 0; i< rowA; i++)
+            {
+                for(int j=0 ; j< colsB; j++)
+                {
+                    sum=0;
+                    for(int k=0; k< colsB; k++)
+                    {
+                        sum += matrixA[i][k]*matrixB[k][j];
+                    }  
+                    System.out.print(" " +sum+" ");
+                } 
+                System.out.println();
+            }
+        }
+        
+        
+    }
+}
